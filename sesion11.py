@@ -251,3 +251,11 @@ ave = aves['pajaro']
 print(ave)
 ave = aves['aguila']
 print(ave)
+
+
+# Retos
+# 1-. 
+# 2-. Añadir alimentos más usados (croquetas...)
+# 3-. Cambia la clave canino (en el slide está perro)
+# 5-. iterar con iteratordict
+
