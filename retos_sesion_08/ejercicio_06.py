@@ -1,5 +1,8 @@
-x1, y1 = (-20, -20)
-x2, y2 = (40, 20)
+punto1 = (-20, -20) # (x1, y1)
+punto2 = (40, 20) # (x2, y2)
 
-formula_punto_medio = ((x1 + x2) // 2, ((y1 + y2) // 2))
-print(formula_punto_medio)
+print(type(punto1))
+print(type(punto2))
+
+punto_medio = ((punto1[0] + punto2[0]) // 2, (punto1[1] + punto2[1]) // 2)
+print(punto_medio)
