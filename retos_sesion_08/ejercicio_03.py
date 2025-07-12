@@ -1,7 +1,8 @@
-pregunta = ("Qué fue primero el huevo o la gallina", )
+pregunta = tuple(input("Ingresa una pregunta: ").split())
 
-concatenar = ('¿', ) + pregunta + ('?', )
-print(concatenar)
+tupla_concatenada = ('¿', ) + pregunta + ('?', )
+print(tupla_concatenada)
+print(type(tupla_concatenada))
 
-repetir_concatenar = 2 * concatenar
-print(repetir_concatenar)
+tupla_repetida = 2 * tupla_concatenada
+print(tupla_repetida)
