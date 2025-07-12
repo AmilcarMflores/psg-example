@@ -1,4 +1,8 @@
-# Input for three key coordinates
-
-coordenadas = tuple(map(int, input().split()))
-print(f'Coordenadas: {coordenadas}')
+print("Ingresa tres coordenadas 'x', 'y', 'z' separadas por espacios (ejemplo: 10 20 30):")
+entrada = input().split()
+x = int(entrada[0])
+y = int(entrada[1])
+z = int(entrada[2])
+coordenadas = (x, y, z)
+print(f"Coordenadas: {coordenadas}")
+print(type(coordenadas))
