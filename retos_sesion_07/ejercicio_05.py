@@ -1,5 +1,7 @@
-texto = "Hola"
+texto = input("Ingrese una cadena: ")
+
 cadena_limpia = texto.replace(" ", "").lower() 
-# Verificar si es palíndromo
-comparar = cadena_limpia == cadena_limpia[::-1]
-print(comparar)  # Salida: True
+
+es_palindromo = cadena_limpia == cadena_limpia[::-1]
+
+print(es_palindromo)
