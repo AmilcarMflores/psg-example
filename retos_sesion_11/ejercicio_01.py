@@ -3,12 +3,9 @@ animal_marino = {
     "habitat": "Océano Atlántico",
     "dieta": "Carnívoro",
     "estado_de_salud": "Saludable",
-    "edad": 10  # años
+    "edad": 10,  # años
+    "responsables": {"María López", "Carlos Ruiz", "Ana Martínez"}  # set de responsables
 }
 print(animal_marino)
 print(type(animal_marino))
-
-# Set con los nombres de los responsables
-responsables = {"María López", "Carlos Ruiz", "Ana Martínez"}
-print("Responsables de su cuidado:", responsables)
-print(type(responsables))
+print(type(animal_marino["responsables"]))
