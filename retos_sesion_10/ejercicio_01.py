@@ -1,4 +1,4 @@
-elementos_con_repetidos = ("📎", "📐", "📏", "✏️", "🖊️", "🖋️", "📎", "📌", "📏", "📇", "🗂️", "📁", "📌", "🗃️", "✏️", "📂", "🖇️")
+elementos_oficina = "📎📐📏✏️🖊️🖋️📎📌📏📇🗂️📁📌🗃️✏️📂🖇️"
 
-elementos_unicos = set(elementos_con_repetidos)
-print(elementos_unicos)
+elementos_unicos = set(elementos_oficina)
+print("Elementos únicos de oficina:", elementos_unicos)
