@@ -10,7 +10,7 @@ nombres = [
     "Towelie",
     "Heidi"
 ]
-sub_lista = nombres[5:9:2]
+sub_lista = nombres[5:10:2]
 print("Sublista:", sub_lista)
 
 existe_jose = "José" in nombres
