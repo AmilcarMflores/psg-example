@@ -11,3 +11,5 @@ for i in range(20):
 
 for numero in sucesion:
     print(numero, end=" ")
+
+print() # Salto de línea final
