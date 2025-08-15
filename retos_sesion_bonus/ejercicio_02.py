@@ -1,7 +1,9 @@
-import random
+# import random
 
 def obtener_aleatorio():
-    return random.randint(1, 100)
+    #return random.randint(1, 100)
+    secreto = object()
+    return (id(secreto) % 100) + 1
 
 def adivina(secreto):
         intentos = 0
