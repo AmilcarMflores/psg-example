@@ -10,3 +10,5 @@ while contador != 20:
 
 for numero in lista:
     print(numero, end=" ")
+
+print() # Salto de línea final
