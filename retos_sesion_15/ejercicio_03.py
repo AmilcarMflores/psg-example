@@ -12,13 +12,15 @@ def cajero():
 
             monto = float(monto)
 
+            if monto <= 0:
+                raise ValueError("El monto debe ser mayor a 0")
             if monto > 1000:
                 raise Exception("El monto excede el límite permitido por transacción (1000)")
             if monto > saldo_disponible:
                 raise FondosInsuficientesError("No hay fondos suficientes")
 
-        except ValueError:
-            print("Ingrese un número válido")
+        except ValueError as e:
+            print(e)
         except FondosInsuficientesError as e:
             print(e)
         except Exception as e:
