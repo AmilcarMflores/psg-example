@@ -1,68 +1,57 @@
-# Tablero vacío 3x3
-tablero = [[" " for _ in range(3)] for _ in range(3)]
-turno_actual = "X"
-juego_terminado = False
+def crear_tablero():
+    return [[' ' for columna in range(3)] for fila in range(3)]
 
-def mostrar_tablero():
+def mostrar_tablero(tablero):
     for fila in tablero:
         print(fila)
     print()
 
-def verificar_ganador():
-    # Filas y columnas
+# Función para verificar ganador o empate
+def ganador_empate(tablero):
+    
+    # Revisar filas y columnas
     for i in range(3):
-        if tablero[i][0] == tablero[i][1] == tablero[i][2] != " ":
-            return tablero[i][0]
-        if tablero[0][i] == tablero[1][i] == tablero[2][i] != " ":
-            return tablero[0][i]
-    # Diagonales
-    if tablero[0][0] == tablero[1][1] == tablero[2][2] != " ":
-        return tablero[0][0]
-    if tablero[0][2] == tablero[1][1] == tablero[2][0] != " ":
-        return tablero[0][2]
-    return None
-
-def tablero_lleno():
+        if tablero[i][0] == tablero[i][1] == tablero[i][2] != ' ':
+            return f"Gana {tablero[i][0]}"
+        if tablero[0][i] == tablero[1][i] == tablero[2][i] != ' ':
+            return f"Gana {tablero[0][i]}"
+    
+    # Revisar diagonales
+    if tablero[0][0] == tablero[1][1] == tablero[2][2] != ' ':
+        return f"Gana {tablero[0][0]}"
+    if tablero[0][2] == tablero[1][1] == tablero[2][0] != ' ':
+        return f"Gana {tablero[0][2]}"
+    
+    # Revisar empate
     for fila in tablero:
-        if " " in fila:
-            return False
-    return True
+        if ' ' in fila:
+            return None
+    return "Empate"
 
-def tres_en_raya_interactivo():
-    global turno_actual, juego_terminado
-    mostrar_tablero()
+def tres_en_raya(tablero, jugador, fila, columna):
+    if tablero[fila][columna] != ' ':
+        print("Casilla ocupada, intenta de nuevo.")
+        return False  # La jugada no se realizó
+    tablero[fila][columna] = jugador
+    return True  # La jugada se realizó
 
-    while not juego_terminado:
-        print(f"Turno de {turno_actual}")
-        try:
-            fila = int(input("Ingresa la fila (0 a 2): "))
-            columna = int(input("Ingresa la columna (0 a 2): "))
-        except ValueError:
-            print("Ingresa solo números enteros.")
-            continue
+tablero = crear_tablero()
+turno = 'X'
 
-        if not (0 <= fila <= 2 and 0 <= columna <= 2):
-            print("Posición fuera del tablero. Usa valores de 0 a 2.")
-            continue
+while True:
+    mostrar_tablero(tablero)
+    print(f"Juega: {turno}")
 
-        if tablero[fila][columna] != " ":
-            print("Casilla ocupada. Elige otra.")
-            continue
+    # Pedir jugada
+    fila = int(input("Fila (0-2): "))
+    columna = int(input("Columna (0-2): "))
 
-        tablero[fila][columna] = turno_actual
-        mostrar_tablero()
-
-        ganador = verificar_ganador()
-        if ganador:
-            print(f"Jugador {ganador} ha ganado!")
-            juego_terminado = True
+    if tres_en_raya(tablero, turno, fila, columna):
+        resultado = ganador_empate(tablero)
+        if resultado:
+            mostrar_tablero(tablero)
+            print(resultado)
             break
-        elif tablero_lleno():
-            print("Empate!")
-            juego_terminado = True
-            break
+        # Cambiar turno
+        turno = 'O' if turno == 'X' else 'X'
 
-        # Cambiar de turno
-        turno_actual = "O" if turno_actual == "X" else "X"
-
-tres_en_raya_interactivo()
